@@ -17,4 +17,13 @@ Route::get('/', function () {
 
 Route::auth();
 
+Route::get('/dashboard', [
+    'middleware' => 'auth',
+    'uses' => 'DashboardController@index'
+]);
+
+Route::resource('car', 'CarController');
+
+Route::auth();
+
 Route::get('/home', 'HomeController@index');
