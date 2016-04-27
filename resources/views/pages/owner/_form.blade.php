@@ -2,31 +2,31 @@
     @include('partials.errors')
 
     <div class="form-group">
-        {!! Form::text('brand', null,
+        {!! Form::text('firstname', null,
         ['class' => 'form-control', 'required' => 'required',
-        'placeholder' => trans('car.fields.brand')]) !!}
+        'placeholder' => trans('owner.fields.firstname')]) !!}
     </div>
 
     <div class="form-group">
-        {!! Form::text('model', null,
+        {!! Form::text('lastname', null,
         ['class' => 'form-control', 'required' => 'required',
-        'placeholder' => trans('car.fields.model')]) !!}
+        'placeholder' => trans('owner.fields.lastname')]) !!}
     </div>
 
     <div class="form-group">
-        {!! Form::text('number', null,
+        {!! Form::text('email', null,
         ['class' => 'form-control', 'required' => 'required',
-        'placeholder' => trans('car.fields.number')]) !!}
+        'placeholder' => trans('owner.fields.email')]) !!}
     </div>
 
-    @if(isset($car))
+    @if(isset($owner))
         <div class="form-group">
-            {!! Form::submit(trans('car.edit'),
+            {!! Form::submit(trans('owner.edit'),
             ['class' => 'btn btn-warning col-sm-12']) !!}
         </div>
     @else
         <div class="form-group">
-            {!! Form::submit(trans('car.create'),
+            {!! Form::submit(trans('owner.create'),
             ['class' => 'btn btn-success col-sm-12']) !!}
         </div>
     @endif
@@ -36,20 +36,21 @@
     {{-- {!! HTML::script('assets/js/images.js') !!} --}}
     <script>
         jQuery(function($) {
-            $('.car-form').validate({
+            $('.owner-form').validate({
                 rules: {
-                    brand: {
+                    firstname: {
                         required: true,
                         maxlength: 255
                     },
-                    model: {
+                    lastname: {
                         required: true,
                         maxlength: 255
                     },
-                    number: {
+                    email: {
                         required: true,
+                        email: true,
                         maxlength: 255
-                    },
+                    }
                 }
             });
         });

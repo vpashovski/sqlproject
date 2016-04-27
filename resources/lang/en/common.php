@@ -3,6 +3,7 @@
 return [
     'home'              => 'Dashboard',
     'cars'              => 'Cars',
+    'owners'            => 'Owners',
     'login'             => 'Login',
     'logout'            => 'Logout',
     'register'          => 'Register',
@@ -19,6 +20,10 @@ return [
     'number'            => 'Brand',
     'destroy'           => 'Delete',
     'cancel'            => 'Cancel',
+    'firstname'         => 'Firstname',
+    'lastname'          => 'Lastname',
+    'email'             => 'Email',
 
-    'destroy_car'       => 'Delete Car with number :number. Are you shure ?',
+    'destroy_car'       => 'Delete Car with number ":number". Are you shure ?',
+    'destroy_owner'     => 'Delete Owner with id ":id". Are you shure ?',
 ];

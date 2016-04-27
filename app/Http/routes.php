@@ -24,6 +24,8 @@ Route::get('/dashboard', [
 
 Route::resource('car', 'CarController');
 
+Route::resource('owner', 'OwnerController');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

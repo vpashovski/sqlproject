@@ -8,7 +8,7 @@ class Car extends Model
 {
     protected $table = 'cars';
 
-    protected $fillable = ['brand', 'model', 'number', 'owner_id', 'image_id'];
+    protected $fillable = ['brand', 'model', 'number', 'image_id'];
 
     public static function getFilteredResults()
     {
@@ -25,9 +25,6 @@ class Car extends Model
         }
         if (Request::has('number')) {
             $query = $query->where('number', 'like', '%' . Request::input('number') . '%');
-        }
-        if (Request::has('owner_id')) {
-            $query = $query->where('owner_id', Request::input('id'));
         }
 
         return $query->paginate(config('constants.per_page'));

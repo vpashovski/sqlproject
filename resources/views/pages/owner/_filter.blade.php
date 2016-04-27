@@ -7,19 +7,19 @@
             'placeholder' => trans('common.id')]) !!}
         </div>
         <div class="col-sm-2">
-            {!! Form::text('brand', Request::input('brand'),
+            {!! Form::text('firstname', Request::input('firstname'),
             ['class' => 'form-control',
-            'placeholder' => trans('common.brand')]) !!}
+            'placeholder' => trans('common.firstname')]) !!}
         </div>
         <div class="col-sm-2">
-            {!! Form::text('model', Request::input('model'),
+            {!! Form::text('lastname', Request::input('lastname'),
             ['class' => 'form-control',
-            'placeholder' => trans('common.model')]) !!}
+            'placeholder' => trans('common.lastname')]) !!}
         </div>
         <div class="col-sm-3">
-            {!! Form::text('number', Request::input('number'),
+            {!! Form::text('email', Request::input('email'),
             ['class' => 'form-control',
-            'placeholder' => trans('common.number')]) !!}
+            'placeholder' => trans('common.email')]) !!}
         </div>
         <div class="col-sm-3">
             {!! Form::submit(trans('common.search'),

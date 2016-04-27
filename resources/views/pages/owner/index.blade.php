@@ -5,54 +5,52 @@
         <section class="panel">
             <header class="panel-heading">
                 <h3 class="pull-left">
-                    {{ trans('car.index') }}
+                    {{ trans('owner.index') }}
                 </h3>
                 <a class="pull-right btn btn-success"
-                   href="{{ route('car.create') }}">
-                    {{ trans('car.create') }}
+                   href="{{ route('owner.create') }}">
+                    {{ trans('owner.create') }}
                 </a>
                 <div class="clearfix"></div>
             </header>
             <div class="panel-body">
-                @include('pages.car._filter')
+                @include('pages.owner._filter')
                 <table class="table table-hover">
                     <thead>
                     <tr>
                         <th>{{ trans('common.id') }}</th>
-                        <th>{{ trans('car.fields.brand') }}</th>
-                        <th>{{ trans('car.fields.model') }}</th>
-                        <th>{{ trans('car.fields.number') }}</th>
-                        <th>{{ trans('common.updated_at') }}</th>
-                        <th>{{ trans('common.options') }}</th>
+                        <th>{{ trans('owner.fields.firstname') }}</th>
+                        <th>{{ trans('owner.fields.lastname') }}</th>
+                        <th>{{ trans('owner.fields.email') }}</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($cars as $car)
+                    @foreach($owners as $owner)
                         <tr>
-                            <td>{{ $car->id }}</td>
-                            <td>{{ $car->brand }}</td>
-                            <td>{{ $car->model }}</td>
-                            <td>{{ $car->number }}</td>
-                            <td>{{ $car->updated_at->toRfc2822String() }}</td>
+                            <td>{{ $owner->id }}</td>
+                            <td>{{ $owner->firstname }}</td>
+                            <td>{{ $owner->lastname }}</td>
+                            <td>{{ $owner->email }}</td>
+                            <td>{{ $owner->updated_at->toRfc2822String() }}</td>
                             <td>
                                 <a class="btn btn-sm btn-info"
-                                   href="{{ route('car.show',
-                                    ['car' => $car->id]) }}">
+                                   href="{{ route('owner.show',
+                                    ['owner' => $owner->id]) }}">
                                     <i class="fa fa-eye"></i>
                                 </a>
 
                                 <a class="btn btn-sm btn-warning"
-                                   href="{{ route('car.edit',
-                                    ['car' => $car->id]) }}">
+                                   href="{{ route('owner.edit',
+                                    ['owner' => $owner->id]) }}">
                                     <i class="fa fa-edit"></i>
                                 </a>
 
                                 <a class="btn btn-sm btn-danger"
                                    href="#destroyModal" data-toggle="modal"
-                                   data-url="{{ route('car.destroy',
-                                    ['car' => $car->id]) }}"
-                                   data-text="{{ trans('common.destroy_car',
-                                   ['number' => $car->number]) }}">
+                                   data-url="{{ route('owner.destroy',
+                                    ['owner' => $owner->id]) }}"
+                                   data-text="{{ trans('common.destroy_owner',
+                                   ['id' => $owner->id]) }}">
                                     <i class="fa fa-trash-o"></i>
                                 </a>
                             </td>
@@ -61,7 +59,7 @@
                     </tbody>
                 </table>
                 <div class="text-center">
-                    {!! $cars->appends(Request::all())->render() !!}
+                    {!! $owners->appends(Request::all())->render() !!}
                 </div>
             </div>
         </section>
