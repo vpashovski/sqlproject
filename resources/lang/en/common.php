@@ -4,6 +4,7 @@ return [
     'home'              => 'Dashboard',
     'cars'              => 'Cars',
     'owners'            => 'Owners',
+    'images'            => 'Images',
     'login'             => 'Login',
     'logout'            => 'Logout',
     'register'          => 'Register',
@@ -23,7 +24,16 @@ return [
     'firstname'         => 'Firstname',
     'lastname'          => 'Lastname',
     'email'             => 'Email',
+    'title'             => 'Title',
+    'select_image'      => 'Select Image',
+    'upload_image'      => 'Upload Image',
 
     'destroy_car'       => 'Delete Car with number ":number". Are you shure ?',
     'destroy_owner'     => 'Delete Owner with id ":id". Are you shure ?',
+    'destroy_image'     => 'Delete Image with ID :id and title :title . Are you shure ?',
+
+    'modal'               => [
+        'select_image'      => 'Select Image',
+        'upload_image'      => 'Upload Image',
+    ]
 ];

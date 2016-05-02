@@ -20,11 +20,8 @@ class CreateCarsTable extends Migration
             $table->integer('image_id')->unsigned()->nullable();
             $table->timestamps();
 
-//            $table->foreign('owner_id')->references('id')->on('owners')
-//                ->onUpdate('cascade')->onDelete('cascade');
-
-//            $table->foreign('image_id')->references('id')->on('images')
-//                ->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('image_id')->references('id')->on('images')
+                ->onUpdate('cascade')->onDelete('set default');
         });
     }
 

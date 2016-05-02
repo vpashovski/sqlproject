@@ -5,23 +5,21 @@
         <section class="panel">
             <header class="panel-heading">
                 <h3 class="pull-left">
-                    {{ trans('car.edit') }}
+                    {{ trans('image.create') }}
                 </h3>
                 <a class="pull-right btn btn-primary"
-                   href="{{ route('car.index') }}">
-                    {{ trans('car.index') }}
+                   href="{{ route('image.index') }}">
+                    {{ trans('image.index') }}
                 </a>
                 <div class="clearfix"></div>
             </header>
             <div class="panel-body">
-                {!! Form::model($car, ['method' => 'PATCH', 'files' => true,
-                    'url' => route('car.update', ['car' => $car]),
-                    'class' => 'car-form']) !!}
-                @include('pages.car._form')
+                {!! Form::open(['method' => 'POST', 'files' => true,
+                    'url' => route('image.store'),
+                    'class' => 'image-form']) !!}
+                @include('pages.image._form')
                 {!! Form::close() !!}
             </div>
         </section>
     </div>
-    @include('partials.modals.select_image')
-    @include('partials.modals.upload_image')
 @endsection

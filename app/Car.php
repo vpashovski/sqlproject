@@ -10,6 +10,11 @@ class Car extends Model
 
     protected $fillable = ['brand', 'model', 'number', 'image_id'];
 
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
+
     public static function getFilteredResults()
     {
         $query = static::ordered();

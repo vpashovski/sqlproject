@@ -26,6 +26,8 @@ Route::resource('car', 'CarController');
 
 Route::resource('owner', 'OwnerController');
 
+Route::resource('image', 'ImageController');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
