@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Car;
+use App\Owner;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CarRequest;
 use Auth;
@@ -41,7 +42,9 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('pages.car.create');
+        $owners = $this->getOwners();
+
+        return view('pages.car.create', compact('owners'));
     }
 
     /**
@@ -52,7 +55,8 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        Car::create($request->all());
+        $car = Car::create($request->all());
+        $car->owners()->attach(array_filter($request->input('owners')));
 
         return redirect()->route($this->redirectRoute);
     }
@@ -76,7 +80,9 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        return view('pages.car.edit', compact('car'));
+        $owners = $this->getOwners();
+
+        return view('pages.car.edit', compact(['car', 'owners']));
     }
 
     /**
@@ -89,7 +95,7 @@ class CarController extends Controller
     public function update(Request $request, Car $car)
     {
         $car->update($request->all());
-
+        $car->owners()->sync(array_filter($request->input('owners')));
         return redirect()->route($this->redirectRoute);
     }
 
@@ -101,8 +107,25 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
+        $owners_ids = [];
+        foreach($car->owners as $owner) {
+            $owners_ids[] = $owner->id;
+        }
+
+        $car->owners()->detach($owners_ids);
         $car->delete();
 
         return redirect()->route($this->redirectRoute);
+    }
+
+    private function getOwners() {
+        $owners = [];
+        $all_owners = Owner::all();
+
+        foreach($all_owners as $owner) {
+            $owners[$owner->id] = $owner->firstname . ' ' . $owner->lastname . ' (' . $owner->email . ')';
+        }
+
+        return $owners;
     }
 }

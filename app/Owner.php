@@ -15,6 +15,11 @@ class Owner extends Model
         return $this->belongsTo(Image::class);
     }
 
+    public function cars()
+    {
+        return $this->belongsToMany(Car::class, 'owner_car');
+    }
+
     public static function getFilteredResults()
     {
         $query = static::ordered();

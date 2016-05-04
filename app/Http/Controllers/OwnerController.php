@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Owner;
+use App\Car;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OwnerRequest;
 use Auth;
@@ -39,7 +40,9 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        return view('pages.owner.create');
+        $cars = $this->getCars();
+
+        return view('pages.owner.create', compact('cars'));
     }
 
     /**
@@ -50,7 +53,8 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        Owner::create($request->all());
+        $owner = Owner::create($request->all());
+        $owner->cars()->attach(array_filter($request->input('cars')));
 
         return redirect()->route($this->redirectRoute);
     }
@@ -74,7 +78,9 @@ class OwnerController extends Controller
      */
     public function edit(Owner $owner)
     {
-        return view('pages.owner.edit', compact('owner'));
+        $cars = $this->getCars();
+
+        return view('pages.owner.edit', compact(['owner', 'cars']));
     }
 
     /**
@@ -87,7 +93,7 @@ class OwnerController extends Controller
     public function update(Request $request, Owner $owner)
     {
         $owner->update($request->all());
-
+        $owner->cars()->sync(array_filter($request->input('cars')));
         return redirect()->route($this->redirectRoute);
     }
 
@@ -99,8 +105,25 @@ class OwnerController extends Controller
      */
     public function destroy(Owner $owner)
     {
+        $cars_ids = [];
+        foreach($owner->cars as $car) {
+            $cars_ids[] = $car->id;
+        }
+
+        $owner->cars()->detach($cars_ids);
         $owner->delete();
 
         return redirect()->route($this->redirectRoute);
+    }
+
+    private function getCars() {
+        $cars = [];
+        $all_cars = Car::all();
+
+        foreach($all_cars as $car) {
+            $cars[$car->id] = $car->brand . ' - ' . $car->model . ' (' . $car->number . ')';
+        }
+
+        return $cars;
     }
 }

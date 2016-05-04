@@ -9,6 +9,6 @@ return [
         'brand'             => 'Brand',
         'model'             => 'Model',
         'number'            => 'Number',
-        'owner'             => 'Owner',
+        'owner'             => '--- Select Owner ---',
     ],
 ];
