@@ -8,7 +8,12 @@ class Owner extends Model
 {
     protected $table = 'owners';
 
-    protected $fillable = ['firstname', 'lastname', 'email'];
+    protected $fillable = ['firstname', 'lastname', 'email', 'image_id'];
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
 
     public static function getFilteredResults()
     {

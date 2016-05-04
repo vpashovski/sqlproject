@@ -20,6 +20,11 @@ class CreateOwnersTable extends Migration
             $table->integer('image_id')->unsigned()->nullable();
             $table->timestamps();
         });
+
+        Schema::table('owners', function($table) {
+            $table->foreign('image_id')->references('id')->on('images')
+                ->onUpdate('cascade')->onDelete('SET NULL');
+        });
     }
 
     /**

@@ -27,7 +27,7 @@ class OwnerRequest extends Request
             'firstname'     => 'required|max:255',
             'lastname'      => 'required|max:255',
             'email'         => 'required|max:255|email',
-//            'image_id'  => 'integer|exists:images,id',
+            'image_id'  => 'integer|exists:images,id',
         ];
     }
 }

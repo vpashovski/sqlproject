@@ -1,4 +1,4 @@
-<div class="col-sm-12">
+<div class="col-sm-9">
     @include('partials.errors')
 
     <div class="form-group">
@@ -31,9 +31,12 @@
         </div>
     @endif
 </div>
+<div class="col-sm-3 well">
+    @include('partials.right_form', isset($owner) ? ['record' => $owner] : [])
+</div>
 
 @section('footer_script')
-    {{-- {!! HTML::script('assets/js/images.js') !!} --}}
+    {!! Html::script('assets/js/images.js') !!}
     <script>
         jQuery(function($) {
             $('.owner-form').validate({

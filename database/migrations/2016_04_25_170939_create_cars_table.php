@@ -19,9 +19,11 @@ class CreateCarsTable extends Migration
             $table->string('number');
             $table->integer('image_id')->unsigned()->nullable();
             $table->timestamps();
+        });
 
+        Schema::table('cars', function($table) {
             $table->foreign('image_id')->references('id')->on('images')
-                ->onUpdate('cascade')->onDelete('set default');
+                ->onUpdate('cascade')->onDelete('SET NULL');
         });
     }
 
