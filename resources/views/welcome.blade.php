@@ -9,6 +9,10 @@
 
                 <div class="panel-body">
                     Your Application's Landing Page.
+                    <br>
+                    You can view all owners with cars <a href="{{ url('/home') }}">here</a>.
+                    <br>
+                    Or you can <a href="{{ url('/login') }}">{{ trans('common.login') }}</a>.
                 </div>
             </div>
         </div>

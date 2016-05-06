@@ -17,17 +17,11 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/dashboard', [
-    'middleware' => 'auth',
-    'uses' => 'DashboardController@index'
-]);
-
 Route::resource('car', 'CarController');
 
 Route::resource('owner', 'OwnerController');
 
 Route::resource('image', 'ImageController');
 
-Route::auth();
+Route::resource('home', 'HomeController');
 
-Route::get('/home', 'HomeController@index');
