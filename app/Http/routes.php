@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'index', function () {
     return view('welcome');
-});
+}]);
 
 Route::auth();
 
@@ -23,5 +23,15 @@ Route::resource('owner', 'OwnerController');
 
 Route::resource('image', 'ImageController');
 
-Route::resource('home', 'HomeController');
+Route::group(['prefix' => 'home'], function() {
+    Route::get('',       ['as' => 'home',     'uses' => 'HomeController@index']);
+});
 
+Route::group(['prefix' => 'other'], function() {
+    Route::get('procedure',       ['as' => 'other.procedure',     'uses' => 'OtherActionController@storedProcedure']);
+});
+
+//Redirect everything other to the index page
+Route::any('{any}', function() {
+    return redirect()->route('index');
+})->where('any', '.*');

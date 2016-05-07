@@ -51,6 +51,15 @@
                     @if(Auth::user())
                         <li><a href="{{ url('/car') }}">{{ trans('common.cars') }}</a></li>
                         <li><a href="{{ url('/owner') }}">{{ trans('common.owners') }}</a></li>
+                        <li><a href="{{ url('/image') }}">{{ trans('common.images') }}</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ trans('common.other') }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/other/procedure') }}"><i class="fa fa-btn fa-sign-out"></i>{{ trans('common.procedure') }}</a></li>
+                            </ul>
+                        </li>
                     @endif
                 </ul>
 

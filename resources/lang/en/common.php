@@ -5,6 +5,8 @@ return [
     'cars'              => 'Cars',
     'owners'            => 'Owners',
     'images'            => 'Images',
+    'other'             => 'Others',
+    'procedure'         => 'Stored Procedure',
     'login'             => 'Login',
     'logout'            => 'Logout',
 

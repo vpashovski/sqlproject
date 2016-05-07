@@ -18,6 +18,11 @@ class Image extends Model
         return $this->hasMany(Car::class);
     }
 
+    public function owners()
+    {
+        return $this->hasMany(Owner::class);
+    }
+
     public static function getFilteredResults()
     {
         $query = static::ordered();
