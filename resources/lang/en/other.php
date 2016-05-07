@@ -13,5 +13,16 @@ return [
             'created_at'            => 'Created At',
             'updated_at'            => 'Updated At',
         ]
-    ]
+    ],
+    'used_images'      => [
+        'index'                 => 'Used Images',
+        'fields'                => [
+            'id'                    => 'ID',
+            'title'                 => 'Title',
+            'thumb'                 => 'Thumbnail',
+            'ext'                   => 'Extension',
+            'created_at'            => 'Created At',
+            'updated_at'            => 'Updated At',
+        ]
+    ],
 ];

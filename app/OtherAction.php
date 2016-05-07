@@ -19,4 +19,9 @@ class OtherAction extends Model
 
         return $results;
     }
+
+    public static function getUsedImages()
+    {
+        return DB::select('SELECT * FROM `images` as i WHERE i.id IN (SELECT image_id FROM owners) OR i.id IN (SELECT image_id FROM cars)');
+    }
 }

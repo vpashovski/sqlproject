@@ -59,6 +59,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/other/procedure') }}"><i class="fa fa-btn fa-suitcase"></i>{{ trans('common.procedure') }}</a></li>
                                 <li><a href="{{ url('/logs') }}"><i class="fa fa-btn fa-archive"></i>{{ trans('common.logs') }}</a></li>
+                                <li><a href="{{ url('/other/image/used') }}"><i class="fa fa-btn fa-file-image-o"></i>{{ trans('common.used_images') }}</a></li>
                             </ul>
                         </li>
                     @endif

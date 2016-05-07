@@ -29,6 +29,7 @@ Route::group(['prefix' => 'home'], function() {
 
 Route::group(['prefix' => 'other'], function() {
     Route::get('procedure',       ['as' => 'other.procedure',     'uses' => 'OtherActionController@storedProcedure']);
+    Route::get('image/used',     ['as' => 'other.image.query',   'uses' => 'OtherActionController@getUsedImages']);
 });
 
 Route::group(['prefix' => 'logs'], function() {
