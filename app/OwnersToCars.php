@@ -29,6 +29,9 @@ class OwnersToCars extends Model
         if (Request::has('number')) {
             $query = $query->where('number', 'like', '%' . Request::input('number') . '%');
         }
+        if (Request::has('in_garage')) {
+            $query = $query->where('in_garage', Request::input('in_garage'));
+        }
 
         return $query->paginate(config('constants.per_page'));
     }

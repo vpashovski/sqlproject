@@ -18,6 +18,7 @@ class CreateCarsTable extends Migration
             $table->string('model');
             $table->string('number');
             $table->integer('image_id')->unsigned()->nullable();
+            $table->boolean('in_garage');
             $table->timestamps();
         });
 

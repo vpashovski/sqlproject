@@ -118,6 +118,17 @@ class CarController extends Controller
         return redirect()->route($this->redirectRoute);
     }
 
+    public function inGarage(Request $request)
+    {
+        if ($request->has('car_id')) {
+            $car = Car::find($request->input('car_id'));
+            $car->in_garage = !$car->in_garage;
+            $car->save();
+        }
+
+        return redirect()->route($this->redirectRoute);
+    }
+
     private function getOwners() {
         $owners = [];
         $all_owners = Owner::all();

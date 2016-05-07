@@ -17,6 +17,10 @@ Route::get('/', ['as' => 'index', function () {
 
 Route::auth();
 
+Route::group(['prefix' => 'car'], function() {
+    Route::get('in',       ['as' => 'car.in_garage',     'uses' => 'CarController@inGarage']);
+});
+
 Route::resource('car', 'CarController');
 
 Route::resource('owner', 'OwnerController');

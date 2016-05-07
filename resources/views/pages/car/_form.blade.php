@@ -19,6 +19,13 @@
         'placeholder' => trans('car.fields.number')]) !!}
     </div>
 
+    <div class="form-group">
+        {!! Form::select('in_garage',
+        ['0' => trans('car.fields.out_garage'), '1' => trans('car.fields.in_garage')],
+        null,
+        ['class' => 'form-control']) !!}
+    </div>
+
     @if(isset($car))
         @forelse($car->owners as $owner)
             <div class="form-group owners">

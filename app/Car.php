@@ -8,7 +8,7 @@ class Car extends Model
 {
     protected $table = 'cars';
 
-    protected $fillable = ['brand', 'model', 'number', 'image_id'];
+    protected $fillable = ['brand', 'model', 'number', 'image_id', 'in_garage'];
 
     public function image()
     {
@@ -35,6 +35,9 @@ class Car extends Model
         }
         if (Request::has('number')) {
             $query = $query->where('number', 'like', '%' . Request::input('number') . '%');
+        }
+        if (Request::has('in_garage')) {
+            $query = $query->where('in_garage', Request::input('in_garage'));
         }
 
         return $query->paginate(config('constants.per_page'));

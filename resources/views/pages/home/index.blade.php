@@ -19,6 +19,7 @@
                         <th>{{ trans('home.fields.brand') }}</th>
                         <th>{{ trans('home.fields.model') }}</th>
                         <th>{{ trans('home.fields.number') }}</th>
+                        <th>{{ trans('home.fields.in_garage') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,17 @@
                             <td>{{ $owner_to_car->brand }}</td>
                             <td>{{ $owner_to_car->model }}</td>
                             <td>{{ $owner_to_car->number }}</td>
+                            <td>
+                                @if($owner_to_car->in_garage)
+                                    <div class="col-sm-1 text-success">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                @else
+                                    <div class="col-sm-1 text-danger">
+                                        <i class="fa fa-close"></i>
+                                    </div>
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

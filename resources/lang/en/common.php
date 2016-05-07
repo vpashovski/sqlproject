@@ -18,6 +18,7 @@ return [
     'brand'             => 'Brand',
     'model'             => 'Model',
     'number'            => 'Number',
+    'in_garage'         => 'Garage',
     'owner'             => 'Owner',
     'search'            => 'Search',
     'destroy'           => 'Delete',

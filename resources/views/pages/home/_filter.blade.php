@@ -26,7 +26,14 @@
             ['class' => 'form-control',
             'placeholder' => trans('common.number')]) !!}
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1">
+            {!! Form::select('in_garage',
+            ['0' => trans('home.out'), '1' => trans('home.in')],
+            Request::input('in_garage'),
+            ['class' => 'form-control',
+            'placeholder' => trans('common.in_garage')]) !!}
+        </div>
+        <div class="col-sm-1">
             {!! Form::submit(trans('common.search'),
             ['class' => 'btn btn-primary col-sm-12']) !!}
         </div>

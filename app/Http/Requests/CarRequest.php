@@ -27,7 +27,8 @@ class CarRequest extends Request
             'brand'     => 'required|max:255',
             'model'     => 'required|max:255',
             'number'    => 'required|max:255',
-//            'image_id'  => 'integer|exists:images,id',
+            'image_id'  => 'integer|exists:images,id',
+            'in_garage' => 'required|boolean',
         ];
     }
 }

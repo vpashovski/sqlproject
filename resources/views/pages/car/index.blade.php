@@ -22,6 +22,7 @@
                         <th>{{ trans('car.fields.brand') }}</th>
                         <th>{{ trans('car.fields.model') }}</th>
                         <th>{{ trans('car.fields.number') }}</th>
+                        <th>{{ trans('car.fields.in_garage') }}</th>
                         <th>{{ trans('common.updated_at') }}</th>
                         <th>{{ trans('common.options') }}</th>
                     </tr>
@@ -33,6 +34,21 @@
                             <td>{{ $car->brand }}</td>
                             <td>{{ $car->model }}</td>
                             <td>{{ $car->number }}</td>
+                            <td>
+                                @if($car->in_garage)
+                                    <a class="btn btn-sm btn-success"
+                                       href="{{ route('car.in_garage',
+                                    ['car_id' => $car->id]) }}">
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                @else
+                                    <a class="btn btn-sm btn-danger"
+                                       href="{{ route('car.in_garage',
+                                    ['car_id' => $car->id]) }}">
+                                        <i class="fa fa-close"></i>
+                                    </a>
+                                @endif
+                            </td>
                             <td>{{ $car->updated_at->toRfc2822String() }}</td>
                             <td>
                                 <a class="btn btn-sm btn-info"
