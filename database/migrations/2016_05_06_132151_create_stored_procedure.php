@@ -12,6 +12,7 @@ class CreateStoredProcedure extends Migration
      */
     public function up()
     {
+        DB::connection()->getPdo()->exec("DROP PROCEDURE IF EXISTS `getOwners`");
         DB::connection()->getPdo()->exec("CREATE PROCEDURE `getOwners`(IN `fname` VARCHAR(20) CHARSET utf8)
             BEGIN
                 SELECT * FROM owners as o

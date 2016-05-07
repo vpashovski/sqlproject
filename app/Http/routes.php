@@ -31,6 +31,10 @@ Route::group(['prefix' => 'other'], function() {
     Route::get('procedure',       ['as' => 'other.procedure',     'uses' => 'OtherActionController@storedProcedure']);
 });
 
+Route::group(['prefix' => 'logs'], function() {
+    Route::get('',       ['as' => 'log.index',     'uses' => 'LogController@index']);
+});
+
 //Redirect everything other to the index page
 Route::any('{any}', function() {
     return redirect()->route('index');

@@ -49,15 +49,16 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">{{ trans('common.home') }}</a></li>
                     @if(Auth::user())
-                        <li><a href="{{ url('/car') }}">{{ trans('common.cars') }}</a></li>
-                        <li><a href="{{ url('/owner') }}">{{ trans('common.owners') }}</a></li>
-                        <li><a href="{{ url('/image') }}">{{ trans('common.images') }}</a></li>
+                        <li><a href="{{ url('/car') }}"><i class="fa fa-btn fa-car"></i>{{ trans('common.cars') }}</a></li>
+                        <li><a href="{{ url('/owner') }}"><i class="fa fa-btn fa-user"></i>{{ trans('common.owners') }}</a></li>
+                        <li><a href="{{ url('/image') }}"><i class="fa fa-btn fa-image"></i>{{ trans('common.images') }}</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ trans('common.other') }} <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/other/procedure') }}"><i class="fa fa-btn fa-sign-out"></i>{{ trans('common.procedure') }}</a></li>
+                                <li><a href="{{ url('/other/procedure') }}"><i class="fa fa-btn fa-suitcase"></i>{{ trans('common.procedure') }}</a></li>
+                                <li><a href="{{ url('/logs') }}"><i class="fa fa-btn fa-archive"></i>{{ trans('common.logs') }}</a></li>
                             </ul>
                         </li>
                     @endif

@@ -7,6 +7,7 @@ return [
     'images'            => 'Images',
     'other'             => 'Others',
     'procedure'         => 'Stored Procedure',
+    'logs'              => 'Logs',
     'login'             => 'Login',
     'logout'            => 'Logout',
 
