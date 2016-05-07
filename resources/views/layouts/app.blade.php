@@ -87,6 +87,20 @@
 
     @yield('content')
 
+    <div class="panel-footer navbar-fixed-bottom">
+        <div class="container">
+            <div class="col-sm-6">
+                2015 - {{ date('Y') }} &copy;
+                OpenSource Проект,
+                <a href="https://github.com/vpashovski/sqlproject" target="_blank">код в GitHub</a>
+            </div>
+            <div class="col-sm-6 text-right">
+                {{ Config::get('app.name') }} - {{ Config::get('app.version') }}
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -96,5 +110,6 @@
     <script src="{{ URL::asset('assets/js/jquery.validate.messages_bg.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
     @yield('footer_script')
+
 </body>
 </html>
