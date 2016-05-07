@@ -20,6 +20,7 @@ class CreateCarsTable extends Migration
             $table->integer('image_id')->unsigned()->nullable();
             $table->boolean('in_garage');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::table('cars', function($table) {

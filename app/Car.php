@@ -3,10 +3,15 @@
 namespace App;
 
 use Request;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Car extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'cars';
+
+    protected $dates = ['deleted_at'];
 
     protected $fillable = ['brand', 'model', 'number', 'image_id', 'in_garage'];
 

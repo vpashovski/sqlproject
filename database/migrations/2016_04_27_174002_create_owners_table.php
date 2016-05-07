@@ -19,6 +19,7 @@ class CreateOwnersTable extends Migration
             $table->string('email');
             $table->integer('image_id')->unsigned()->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::table('owners', function($table) {

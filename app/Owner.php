@@ -3,10 +3,15 @@
 namespace App;
 
 use Request;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Owner extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'owners';
+
+    protected $dates = ['deleted_at'];
 
     protected $fillable = ['firstname', 'lastname', 'email', 'image_id'];
 
