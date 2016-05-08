@@ -40,6 +40,11 @@ Route::group(['prefix' => 'logs'], function() {
     Route::get('',       ['as' => 'log.index',     'uses' => 'LogController@index']);
 });
 
+Route::group(['prefix' => 'archive'], function() {
+    Route::get('cars',       ['as' => 'archive.cars',     'uses' => 'ArchiveController@cars']);
+    Route::get('owners',     ['as' => 'archive.owners',   'uses' => 'ArchiveController@owners']);
+});
+
 //Redirect everything other to the index page
 Route::any('{any}', function() {
     return redirect()->route('index');

@@ -9,6 +9,7 @@ return [
     'procedure'         => 'Stored Procedure',
     'logs'              => 'Logs',
     'used_images'       => 'Used Images',
+    'archives'          => 'Archives',
     'login'             => 'Login',
     'logout'            => 'Logout',
 
