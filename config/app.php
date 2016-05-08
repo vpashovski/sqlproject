@@ -118,7 +118,7 @@ return [
 
     'name' => env('APP_NAME', 'SQL Project'),
 
-    'version' => env('APP_VERSION', '1.0.0-dev'),
+    'version' => env('APP_VERSION', '1.0.0'),
 
     /*
     |--------------------------------------------------------------------------
