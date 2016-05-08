@@ -19,6 +19,7 @@
                     <thead>
                     <tr>
                         <th>{{ trans('common.id') }}</th>
+                        <th>{{ trans('common.thumb') }}</th>
                         <th>{{ trans('owner.fields.firstname') }}</th>
                         <th>{{ trans('owner.fields.lastname') }}</th>
                         <th>{{ trans('owner.fields.email') }}</th>
@@ -28,6 +29,13 @@
                     @foreach($owners as $owner)
                         <tr>
                             <td>{{ $owner->id }}</td>
+                            <td>
+                                @if($owner->image)
+                                        {!! Html::image($owner->image->url, 'thumb', ['width' => config('constants.thumb.width'), 'height' => config('constants.thumb.height')]) !!}
+                                @else
+                                    {!! Html::image('assets/img/no-image.png', 'thumb', ['width' => config('constants.thumb.width'), 'height' => config('constants.thumb.height')]) !!}
+                                @endif
+                            </td>
                             <td>{{ $owner->firstname }}</td>
                             <td>{{ $owner->lastname }}</td>
                             <td>{{ $owner->email }}</td>

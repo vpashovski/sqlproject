@@ -5,6 +5,11 @@ return [
     'create'        => 'Add Car',
     'show'          => 'View Car',
     'edit'          => 'Edit Car',
+    'brand'         => 'Brand',
+    'model'         => 'Model',
+    'number'        => 'Number',
+    'in_garage'     => 'In Garage',
+    'owners'        => 'Owners',
     'fields'        => [
         'brand'             => 'Brand',
         'model'             => 'Model',

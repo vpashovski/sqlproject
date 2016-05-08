@@ -53,7 +53,11 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        $owner = Owner::create($request->all());
+        $values = array_map(function($value) {
+            return $value === "" ? NULL : $value;
+        }, $request->all());
+
+        $owner = Owner::create($values);
         $owner->cars()->attach(array_filter($request->input('cars')));
 
         return redirect()->route($this->redirectRoute);
@@ -92,7 +96,11 @@ class OwnerController extends Controller
      */
     public function update(Request $request, Owner $owner)
     {
-        $owner->update($request->all());
+        $values = array_map(function($value) {
+            return $value === "" ? NULL : $value;
+        }, $request->all());
+
+        $owner->update($values);
         $owner->cars()->sync(array_filter($request->input('cars')));
         return redirect()->route($this->redirectRoute);
     }

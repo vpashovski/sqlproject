@@ -19,6 +19,7 @@
                     <thead>
                     <tr>
                         <th>{{ trans('common.id') }}</th>
+                        <th>{{ trans('common.thumb') }}</th>
                         <th>{{ trans('car.fields.brand') }}</th>
                         <th>{{ trans('car.fields.model') }}</th>
                         <th>{{ trans('car.fields.number') }}</th>
@@ -31,6 +32,13 @@
                     @foreach($cars as $car)
                         <tr>
                             <td>{{ $car->id }}</td>
+                            <td>
+                                @if($car->image)
+                                    {!! Html::image($car->image->url, 'thumb', ['width' => config('constants.thumb.width'), 'height' => config('constants.thumb.height')]) !!}
+                                @else
+                                    {!! Html::image('assets/img/no-image.png', 'thumb', ['width' => config('constants.thumb.width'), 'height' => config('constants.thumb.height')]) !!}
+                                @endif
+                            </td>
                             <td>{{ $car->brand }}</td>
                             <td>{{ $car->model }}</td>
                             <td>{{ $car->number }}</td>

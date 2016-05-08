@@ -14,6 +14,7 @@ return [
     'logout'            => 'Logout',
 
     'id'                => 'ID',
+    'thumb'             => 'Thumbnail',
     'updated_at'        => 'Updated At',
     'options'           => 'Options',
     'brand'             => 'Brand',

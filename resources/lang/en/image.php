@@ -2,9 +2,9 @@
 
 return [
     'index'     => 'Images',
-    'create'    => 'Create',
-    'show'      => 'View',
-    'edit'      => 'Edit',
+    'create'    => 'Create Image',
+    'show'      => 'View Image',
+    'edit'      => 'Edit Image',
     'fields'    => [
         'title'     => 'Title',
     ],

@@ -25,7 +25,7 @@
                     @foreach($results as $result)
                         <tr>
                             <td>{{ $result['id'] }}</td>
-                            <td>{!! Html::image($result['url'], 'thumb', ['width' => 70, 'height' => 70]) !!}</td>
+                            <td>{!! Html::image($result['url'], 'thumb', ['width' => config('constants.thumb.width'), 'height' => config('constants.thumb.height')]) !!}</td>
                             <td>{{ $result['title'] }}</td>
                             <td>{{ $result['ext'] }}</td>
                             <td>{{ $result['created_at'] }}</td>

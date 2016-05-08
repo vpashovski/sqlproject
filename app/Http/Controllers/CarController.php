@@ -55,7 +55,11 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        $car = Car::create($request->all());
+        $values = array_map(function($value) {
+            return $value === "" ? NULL : $value;
+        }, $request->all());
+
+        $car = Car::create($values);
         $car->owners()->attach(array_filter($request->input('owners')));
 
         return redirect()->route($this->redirectRoute);
@@ -94,7 +98,11 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        $car->update($request->all());
+        $values = array_map(function($value) {
+            return $value === "" ? NULL : $value;
+        }, $request->all());
+
+        $car->update($values);
         $car->owners()->sync(array_filter($request->input('owners')));
         return redirect()->route($this->redirectRoute);
     }
